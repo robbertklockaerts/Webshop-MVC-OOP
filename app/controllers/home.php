@@ -16,6 +16,11 @@ Class Home extends Controller
           $data['user_data'] = $user_data;
         }
         
+        if($_SERVER['REQUEST_METHOD'] == "POST")   
+        {
+         
+           $User->subscribe($_POST);
+        } 
         // give a specific name for every page by passing the $data value will also come in handy for db passing
         $data['page_title'] ="Home";
         $this->view("index", $data);

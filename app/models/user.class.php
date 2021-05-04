@@ -3,7 +3,7 @@
 Class user
 {
     private $error = "";
-    public $userModel;
+
 
 
  
@@ -124,12 +124,7 @@ Class user
 
         
     }
-    public function get_user($POST)
-    {
-
-        
-    }
-   
+    
     public function check_login()
     {
        // $_SESSION['user_firstname'] = $firstname;
@@ -167,20 +162,22 @@ Class user
     
     public function subscribe($POST)
     {
-        $data = array();
-        $db = Database::getInstance();
-        $data['mail'] = trim($POST['mail']);
+        $data = array();     
+        $db = Database::newInstance();
+        $data['mail'] = $POST['mail'];
+        if (empty($data['mail']) || (!filter_var($data['mail'], FILTER_VALIDATE_EMAIL)))
+        {
+            $this->error .= "Please enter a valid email <br>";
+        }
+        if($this->error == "")
+        {
         $query = "insert into newsletter (mail) values (:mail)";
-           
-        $result= $db->write($query, $data);
-
-        if($result){
-            header("Location:" . ROOT . "index");
-            die;
-       }
-
-
-
+        $db->write($query, $data);
+        }  
+        $_SESSION['error'] = $this->error; 
+    
     }
+            
+    
       
 }

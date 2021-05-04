@@ -36,6 +36,14 @@ Class Database
        
     }
 
+    
+ 	public static function newInstance()
+     {
+         return $instance = new self();
+      }
+
+      
+ 
     //read and write from db
     public function read($query,$data = array())
     {
@@ -62,7 +70,6 @@ Class Database
         
         if($result) {
            
-          
             return $data;
             }
         

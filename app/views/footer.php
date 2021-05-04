@@ -2,7 +2,7 @@
 
   <!-- Start Footer  -->
     <footer>
-        <div class="footer-main">
+            <div class="footer-main">
             <div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-sm-12">
@@ -17,9 +17,8 @@
 						<div class="footer-top-box">
 							<h3>Newsletter</h3>
 							<form  actio ="#" class="newsletter-box" method="POST">
-						
-									<input  type="email" name="mail" class="form-group" placeholder="Email Address*"/>
-									<i class="fa fa-envelope"></i>
+                           			<input  type="mail" name="mail" class="form-group" placeholder="Email Address*"/>
+									<i class="fa fa-envelope"></i><br><?php check_error() ?>
                             
 								<button name="submit" class="btn hvr-hover" type="submit">Submit</button>
                             </form>
