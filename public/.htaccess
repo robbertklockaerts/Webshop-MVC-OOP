@@ -1,0 +1,26 @@
+RewriteEngine On
+
+ 
+# rewrite name of the base to your foldername
+
+# RewriteBase /
+
+
+# if requested filename is not a directory or a file
+# if a file/folder path is typed in the url ignore it an give access 
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+# rewrite the url in following way: Take the whole request filename and provide it as the value of a url query parameter to index.php 
+# Append any query string from the original url as further query parameters (QSA) and stop processing this .htaccesfile (L)
+#RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+
+#beginning ^ to end $ everything in between .*  send to index.php page whatever query string is there send it to the variable url=$1  shove everything threw index.php
+
+#anything you type after index.php page url will redirect threw the index.php page!!!
+
+
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
