@@ -1,6 +1,12 @@
 # eShop OOP
 
-Work in Progress
+
+
+WORK IN PROGRESS!
+
+
+
+
 
 - Repository: OOP
 - Type of Challenge:  `Consolidation`
